@@ -1,17 +1,17 @@
-'use strict'
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express')
+const show_routes = require('./routes/RoutMusic')
 
-var app = express();
+const app = express()
 
+// settings
+app.set('port', process.env.PORT || 3000)
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+// middleware
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
+// routes
+app.use('/api/Artist', show_routes)
 
-app.get('/test', (req, res) =>{
-    res.status(200).send({message:"hola mundo"})
+module.exports = app
 
-})
-
-module.exports = app;
