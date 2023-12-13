@@ -4,8 +4,6 @@ var Schema = mongoose.Schema
 
 var MusicSchema = Schema({
     name: String,
-    nationality: String,
-    photo: String,
 });
 
-module.exports = mongoose.model('Artist', MusicSchema ,'Artist');
+module.exports = mongoose.model('Genre', MusicSchema, "Genre");

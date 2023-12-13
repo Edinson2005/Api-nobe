@@ -1,5 +1,8 @@
 const express = require('express')
-const show_routes = require('./routes/RoutMusic')
+
+const artist= require('./routes/RoutMusic')
+const genre = require('./routes/RoutGenre')
+const album = require('./routes/RoutAlbum')
 
 const app = express()
 
@@ -11,7 +14,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 // routes
-app.use('/api/Artist', show_routes)
+app.use('/api/Artist', artist)
+app.use('/api/Genre', genre)
+app.use('/api/Album', album)
 
 module.exports = app
 
